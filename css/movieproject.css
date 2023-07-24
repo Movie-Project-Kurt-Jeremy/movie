@@ -17,6 +17,12 @@
     border: 2px solid black;
 }
 
+.small-text {
+    font-size: 14px; /* Adjust the font size as desired */
+    /* Add any other styling you want for the movie cast */
+}
+
+
 /*/Slide/*/
 * {box-sizing:border-box}
 
