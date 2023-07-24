@@ -25,15 +25,16 @@ function updateSearch(e) {
             return data;
         })
         .then((movieArray) => {
-            console.log(movieArray);
             // Search update functionality
             let movieName = searchInput.value;
             let searchedMovies = [];
-            movieArray.forEach(function (movie) {
-                if (movie.title.toLowerCase().includes(movieName.toLowerCase())) {
-                    searchedMovies.push(movie);
+            console.log(movieArray);
+            for (let i = 0; i < movieArray.length; i++) {
+                console.log(movieArray[i].title);
+                if (movieArray[i].title.toLowerCase().includes(movieName.toLowerCase())) {
+                    searchedMovies.push(movieArray[i]);
                 }
-            });
+            }
             return searchedMovies;
         })
         .catch(error => {
@@ -64,29 +65,3 @@ function updateSearch(e) {
         setTimeout(showSlides, 2000); // Change image every 2 seconds
     }
 })();
-
-
-////
-
-// let getMovieArray = () => {
-//     let url = '../data/db.json'
-//     let options = {
-//         method: 'GET',
-//         headers: {
-//             'Content-Type': 'application/json'
-//         }
-//     }
-//     return fetch(url, options).then((response) => {
-//         console.log(response)
-//         return response.json()
-//     })
-//         .then((data) => {
-//             console.log(data[0].title)
-//         })
-//         .catch(error => {
-//             console.log(error.message)
-//         })
-// }
-
-//EVENT LIST
-// searchInput.addEventListener("input", updateSearch)
