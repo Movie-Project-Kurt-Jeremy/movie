@@ -105,3 +105,11 @@
     from {opacity: .4}
     to {opacity: 1}
 }
+.align {
+    align-items: start;
+    margin-left: 10px;
+
+}
+.w-50{
+    max-width: 50%;
+}

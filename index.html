@@ -12,21 +12,43 @@
 </head>
 <body>
 <div class="page-wrapper">
-<!--    //Webpage heading-->
+    <!--    //Webpage heading-->
     <header class="container">
         <div class="row">
             <div class="column card">
-            <h1>Head</h1>
+                <h1>Head</h1>
             </div>
         </div>
     </header>
-<!--    //Main body-->
+<!--    //Movie List-->
+    <section class="container">
+        <div class="row">
+            <div class="column card">
+                <h1>Movie List</h1>
+            </div>
+        </div>
+    </section>
+    <div class="row justify-center">
+        <input type="search" class="w-50">
+        <button>Submit</button>
+    </div>
+    <!--    //Main body-->
     <section class="container main-body-container">
         <div class="row">
             <div class="column card">
-            <h1>Body</h1>
+                <h1>Body</h1>
                 <div class="column card-text">
-                <p>Text</p>
+                    <div class="d-flex flex-column align">
+                        <h1>Title</h1>
+                        <h2>Cast</h2>
+                    </div>
+                    <div class="row justify-space-between">
+                        <button>Remove</button>
+                        <button>Add</button>
+                    </div>
+                    <div class="d-flex flex-column align">
+                        <p>Description</p>
+                    </div>
                 </div>
             </div>
             <div class="column card">
@@ -37,7 +59,7 @@
             </div>
         </div>
     </section>
-<!--    //Footer section-->
+    <!--    //Footer section-->
     <footer class="container">
         <div class="row">
             <div class="column">
@@ -45,8 +67,8 @@
             </div>
         </div>
     </footer>
-<!--    <link rel="stylesheet" href="css/slideshowtest.css">-->
-
+    <!--    <link rel="stylesheet" href="css/slideshowtest.css">-->
+    <h1>Featured Movies</h1>
     <!-- Slideshow container -->
     <div class="slideshow-container">
 
@@ -81,8 +103,9 @@
         <span class="dot" onclick="currentSlide(2)"></span>
         <span class="dot" onclick="currentSlide(3)"></span>
     </div>
-<!--    <script src="js/slideshowtest.js"></script>-->
-<!--</div>-->
-<script src="js/movieproject.js"></script>
+    <!--    <script src="js/slideshowtest.js"></script>-->
+    <!--</div>-->
+    <script src="js/movieproject.js"></script>
+</div>
 </body>
 </html>
