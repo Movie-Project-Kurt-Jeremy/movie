@@ -24,6 +24,7 @@ function updateSearch(e) {
         })
         .then((movieArray) => {
             // Search update functionality
+            console.log(movieArray);
             let movieName = searchInput.value;
             let searchedMovies = [];
 
@@ -83,7 +84,7 @@ function displayMovies(movies) {
           <button>Remove</button>
           <button>Add</button>
         </div>
-        <p>${movie.description}</p>
+        <p>${movie.extract}</p>
       `;
 
             // Append the card to the movie container
