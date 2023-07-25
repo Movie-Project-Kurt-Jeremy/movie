@@ -28,9 +28,9 @@ function updateSearch(e) {
 			let movieName = searchInput.value;
 			let searchedMovies = [];
 
-			// If the search input is empty, display only the first 6 movies
+			// If the search input is empty, display no movies
 			if (movieName === "") {
-				searchedMovies = movieArray.slice(0, 6);
+				searchedMovies = movieArray.slice(0, 0);
 			} else {
 				// Filter movies based on the search input (case-insensitive)
 				for (let i = 0; i < movieArray.length; i++) {
@@ -59,12 +59,12 @@ function displayMovies(movies) {
 	// Check if there are movies to display
 	if (movies.length === 0) {
 		const noResultsElement = document.createElement("p");
-		noResultsElement.textContent = "THIS MOVIE COULD NOT BE FOUND";
+		noResultsElement.textContent = "";
 		noResultsElement.classList.add("noResults")
 		noResultsElement.classList.add("text-white")
 		movieContainer.appendChild(noResultsElement);
 	} else {
-		// Append movie cards to the container, but limit it to the first 6 movies
+		// Append movie cards to the container, but limit it to the first 4 movies
 		const maxMoviesToShow = 4;
 		let appendedMoviesCount = 0;
 
