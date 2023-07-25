@@ -5,6 +5,7 @@
     text-align: center;
     border-radius: 5px;
     border: 2px solid black;
+
 }
 .main-body-container {
     background-color: rgba(136, 4, 4, 0.47);
@@ -134,4 +135,8 @@
     text-align: center;
     justify-items: center;
     font-size: 25px;
+}
+.max-img-size{
+    max-width: 100%;
+
 }

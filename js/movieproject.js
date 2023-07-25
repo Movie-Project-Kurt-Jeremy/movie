@@ -80,6 +80,9 @@ function displayMovies(movies) {
 
             // Use innerHTML to set the content of the card with movie data
             card.innerHTML = `
+        <div class="max-img-size">
+        <img src="${movie.thumbnail}" alt="img" style="">
+        </div>
         <h1>${movie.title}</h1>
         <h2><span class="small-text">${movie.cast}</span></h2>
         <div class="row justify-space-between">
@@ -87,6 +90,7 @@ function displayMovies(movies) {
           <button>Add</button>
         </div>
         <p>${movie.extract}</p>
+        
       `;
 
             // Append the card to the movie container
@@ -108,7 +112,6 @@ function displayMovies(movies) {
     showSlides();
 
     function showSlides() {
-        // ... existing showSlides() code ...
 
         // Call the showSlides function recursively after 2 seconds
         setTimeout(showSlides, 2000); // Change image every 2 seconds
