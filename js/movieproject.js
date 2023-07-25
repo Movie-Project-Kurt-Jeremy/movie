@@ -19,7 +19,10 @@ function updateSearch(e) {
 			return response.json();
 		})
 		.then((data) => {
-			console.log(data[0].title);
+			for(let i = 0; i < data.length; i++) {
+				data[i].id = i;
+			}
+			console.log(data);
 			return data;
 		})
 		.then((movieArray) => {
