@@ -101,6 +101,14 @@ function displayMovies(movies) {
 	}
 }
 
+
+function displayFavoriteMovies(favoriteMovies){
+	const favoriteMovieContainer = document.querySelector(".append-favorite-movies .row");
+	favoriteMovieContainer.innerHTML = "";
+
+
+}
+// displayFavoriteMovies()
 // IIFE
 (() => {
 	// Call the function to fetch and update the movie array
