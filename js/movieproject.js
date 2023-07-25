@@ -89,12 +89,9 @@ function displayMovies(movies) {
         <h1 class="height-title">${movie.title}</h1>
         <h2><span class="small-text">${movie.cast[0]}, ${movie.cast[1]}, ${movie.cast[2]}</span></h2>
         <div class="row justify-space-between">
-          <button>Remove</button>
           <button>Add</button>
         </div>
-        <div class="padding">
-        <p>${movie.extract}</p>
-		</div>
+      
         
       `;
 
