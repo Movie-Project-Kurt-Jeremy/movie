@@ -127,9 +127,18 @@
 .w-50{
     max-width: 50%;
 }
+.w-75{
+    max-width: 75%;
+}
+.w-100{
+    max-width: 100%;
+}
+
 .search-bar{
-    height: 30px;
+    height: 40px;
     width: 100%;
+    font-style: italic;
+
 }
 .noResults{
     text-align: center;
@@ -139,4 +148,7 @@
 .max-img-size{
     max-width: 100%;
 
+}
+.header-font{
+    font-style: italic;
 }
