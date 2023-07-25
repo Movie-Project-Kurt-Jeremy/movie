@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/movieproject.css">
 </head>
-<body>
-<div class="page-wrapper">
+<body class="main-body-movies">
+<div class="page-wrapper main-body-container ">
     <!--    //Webpage heading-->
     <header class="container">
         <div class="row">
@@ -28,14 +28,15 @@
             </div>
         </div>
     </section>
-    <div class="container justify-center">
-        <div class="row justify-center ">
-            <input id="search" type="search" class="w-50">
+    <div class="container justify-center card">
+        <h1>Search Movies</h1>
+        <div class="row justify-center">
+            <input id="search" type="search" class="search-bar">
             <button>Submit</button>
         </div>
     </div>
     <!--    //Main body-->
-    <section class="container main-body-container">
+    <section class="container append-cards">
         <div class="row">
             <div class="column card">
                 <h1>Body</h1>
@@ -64,13 +65,14 @@
     <!--    //Footer section-->
     <footer class="container">
         <div class="row">
-            <div class="column">
-
+            <div class="column align-center text-white">
+                <h1>Featured Movies</h1>
             </div>
         </div>
     </footer>
     <!--    <link rel="stylesheet" href="css/slideshowtest.css">-->
-    <h1>Featured Movies</h1>
+
+
     <!-- Slideshow container -->
     <div class="slideshow-container">
 
@@ -105,6 +107,7 @@
         <span class="dot" onclick="currentSlide(2)"></span>
         <span class="dot" onclick="currentSlide(3)"></span>
     </div>
+
 
     <script src="js/movieproject.js"></script>
 </div>

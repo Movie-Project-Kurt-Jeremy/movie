@@ -28,9 +28,9 @@ function updateSearch(e) {
             let movieName = searchInput.value;
             let searchedMovies = [];
 
-            // If the search input is empty, display only the first four movies
+            // If the search input is empty, display only the first 6 movies
             if (movieName === "") {
-                searchedMovies = movieArray.slice(0, 4);
+                searchedMovies = movieArray.slice(0, 6);
             } else {
                 // Filter movies based on the search input (case-insensitive)
                 for (let i = 0; i < movieArray.length; i++) {
@@ -51,7 +51,7 @@ function updateSearch(e) {
 
 function displayMovies(movies) {
     // Get the container element where the cards will be appended
-    const movieContainer = document.querySelector(".main-body-container .row");
+    const movieContainer = document.querySelector(".append-cards .row");
 
     // Clear previous movie cards by setting the innerHTML to an empty string
     movieContainer.innerHTML = "";
@@ -59,11 +59,13 @@ function displayMovies(movies) {
     // Check if there are movies to display
     if (movies.length === 0) {
         const noResultsElement = document.createElement("p");
-        noResultsElement.textContent = "No results found.";
+        noResultsElement.textContent = "THIS MOVIE COULD NOT BE FOUND";
+        noResultsElement.classList.add("noResults")
+        noResultsElement.classList.add("text-white")
         movieContainer.appendChild(noResultsElement);
     } else {
-        // Append movie cards to the container, but limit it to the first four movies
-        const maxMoviesToShow = 4;
+        // Append movie cards to the container, but limit it to the first 6 movies
+        const maxMoviesToShow = 6;
         let appendedMoviesCount = 0;
 
         for (const movie of movies) {

@@ -1,12 +1,16 @@
 .card {
-    background-color: lightblue;
+    color: #f0f0f0;
+    background-color: #ec506a;
     margin: 10px;
     text-align: center;
     border-radius: 5px;
     border: 2px solid black;
 }
 .main-body-container {
-    background-color: red;
+    background-color: rgba(136, 4, 4, 0.47);
+}
+.main-body-movies{
+    background-image: url("/img/jack-reacher-star-wars-interstellar-movie-john-wick-wallpaper-preview.jpg");
 }
 
 .card-text {
@@ -20,6 +24,9 @@
 .small-text {
     font-size: 14px; /* Adjust the font size as desired */
     /* Add any other styling you want for the movie cast */
+}
+.text-white{
+    color: #f0f0f0;
 }
 
 
@@ -118,4 +125,13 @@
 }
 .w-50{
     max-width: 50%;
+}
+.search-bar{
+    height: 30px;
+    width: 100%;
+}
+.noResults{
+    text-align: center;
+    justify-items: center;
+    font-size: 25px;
 }
