@@ -1,3 +1,26 @@
+// Function to delete a movie
+function deleteMovie(movieId) {
+    const url = `http://localhost:3000/movies/${movieId}`;
+    const options = {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    };
+
+    // Perform the DELETE request
+    return fetch(url, options)
+        .then((response) => response.json())
+        .then((data) => {
+            console.log('Movie deleted:', data);
+            // Call the updateSearch function to refresh the displayed movies after deletion
+            updateSearch();
+        })
+        .catch((error) => {
+            console.log(error.message);
+        });
+}
+
 // Functions
 function updateSearch(e) {
     // Prevent default form submission behavior
@@ -14,11 +37,11 @@ function updateSearch(e) {
     // Fetch the movie data using the Fetch API
     return fetch(url, options)
         .then((response) => {
-            console.log(response);
+            // console.log(response);
             return response.json();
         })
         .then((data) => {
-            console.log(data[0].title);
+            // console.log(data[0].title);
             return data;
         })
         .then((movieArray) => {
@@ -44,7 +67,8 @@ function updateSearch(e) {
             return searchedMovies;
         })
         .catch((error) => {
-            console.log(error.message);
+
+            console.log(error);
         });
 }
 
@@ -63,16 +87,8 @@ function displayMovies(movies) {
         noResultsElement.classList.add("text-white")
         movieContainer.appendChild(noResultsElement);
     } else {
-        // Append movie cards to the container, but limit it to the first 4 movies
-        const maxMoviesToShow = 4;
-        let appendedMoviesCount = 0;
-
+        // Append movie cards to the container, including a delete button for each movie
         for (const movie of movies) {
-            // Check if the maximum number of movies has been appended
-            if (appendedMoviesCount >= maxMoviesToShow) {
-                break;
-            }
-
             // Create a new card element for each movie
             const card = document.createElement("div");
             card.classList.add("column", "card");
@@ -82,55 +98,110 @@ function displayMovies(movies) {
         <div class="max-img-size">
         <img src="${movie.thumbnail}" alt="img" style="" class="height">
         </div>
+        <input placeholder="Change Title" type="text" class="movieTitleInput">
         <h1 class="height-title">${movie.title}</h1>
-        <h2><span class="small-text">${movie.cast[0]}, ${movie.cast[1]}, ${movie.cast[2]}</span></h2>
         <div class="row justify-space-between">
-        <button>Add</button>
+        <button class="update-btn" data-movieId=${movie.id}>update</button>
+        <button class="delete-btn">Delete</button>
         </div>
-       
-        
       `;
+
+            // Create a delete button for each movie card
+            const deleteButton = card.querySelector(".delete-btn");
+            deleteButton.addEventListener("click", () => {
+                // Call the deleteMovie function and pass the movie's id to delete it
+                deleteMovie(movie.id);
+            });
+
+            const updateButton = card.querySelector(".update-btn");
+            const movieTitleChangeElem = card.querySelector(".movieTitleInput")
+
+
+            updateButton.addEventListener("click", function  (){
+                console.log("clicked")
+                const movieTitle = movieTitleChangeElem.value
+               // const movieId =  this.getAttribute("data-movieId");
+                 updateMovie(movie, movieTitle)
+            })
 
             // Append the card to the movie container
             movieContainer.appendChild(card);
-
-            // Increment the appended movies count
-            appendedMoviesCount++;
         }
     }
 }
 
+async function updateMovie  (movieObj, movieTitle){
+    console.log(movieObj)
+    // Fetch from DB with the movie ID and change the title
+    const updatedInfo = {
+        ...movieObj,
+        title: movieTitle
+    }
+    const options = {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(updatedInfo)
+    }
 
-// function displayFavoriteMovies(favoriteMovies){
-// 	const favoriteMovieContainer = document.querySelector(".append-favorite-movies .row");
-// 	favoriteMovieContainer.innerHTML = "";
+    const resp = await fetch(`http://localhost:3000/movies/${movieObj.id}`, options)
+    const data = await resp.json();
+    return data;
+}
+function addMovie(event) {
+    event.preventDefault();
 
+    const form = event.target;
+    const formData = new FormData(form);
 
+    const newMovie = {
+        title: formData.get('title'),
+    };
 
-// displayFavoriteMovies()
+    // Make the POST request to add the new movie
+    const url = 'http://localhost:3000/movies';
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newMovie)
+    };
+
+    fetch(url, options)
+        .then(response => response.json())
+        .then(data => {
+            console.log('New movie added:', data);
+            // Call the updateSearch function to refresh the displayed movies after addition
+            // updateSearch();
+        })
+        .catch(error => {
+            console.error('Error adding movie:', error.message);
+        });
+
+    // Reset the form fields after submission
+    form.reset();
+}
+
 
 // GLOBAL VARIABLES
 
 
 // EVENTS
+const addMovieForm = document.querySelector("#addMovieForm");
+addMovieForm.addEventListener("submit", addMovie);
 
+// const searchInput = document.querySelector("#search");
+// searchInput.addEventListener("input", updateSearch);
 
 // IIFE
 (() => {
     // Call the function to fetch and update the movie array
-    updateSearch();
+    // updateSearch();
 
-    // Slide
-    let slideIndex = 0;
-    showSlides();
-
-    function showSlides() {
-
-        // Call the showSlides function recursively after 2 seconds
-        setTimeout(showSlides, 2000); // Change image every 2 seconds
-    }
 })();
-
+// updateSearch();
 // Event Listener for search input
 const searchInput = document.querySelector("#search");
 searchInput.addEventListener("input", updateSearch);
