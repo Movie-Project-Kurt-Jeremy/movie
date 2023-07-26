@@ -6,6 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Movie Project</title>
+    <script src="js/keys.js"></script>
     <link rel="stylesheet" href="css/resets.css">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/movieproject.css">
@@ -16,23 +17,42 @@
     <header class="container card">
         <div class="row w-100">
             <div class="column ">
-                <h1 class="header-font" >Movie Project</h1>
+                <h1 class="header-font">Movie Project</h1>
                 <h2 class="header-font">Brought to you by Jeremy Tanner & Kurt Suttin</h2>
             </div>
         </div>
     </header>
     <!--    //Movie List-->
-<!--    <section class="container">-->
-<!--        <div class="row">-->
-<!--            <div class="column card">-->
-<!--                <h1>Movie List</h1>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </section>-->
+    <!--    <section class="container">-->
+    <!--        <div class="row">-->
+    <!--            <div class="column card">-->
+    <!--                <h1>Movie List</h1>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </section>-->
     <div class="container justify-center card">
         <h1 class="header-font">Search Movies</h1>
         <div class="row justify-center">
             <input id="search" type="search" placeholder="Search Movie Here!" class="search-bar w-75 ">
+            <button id="myBtn" class="button">Add Movie</button>
+            <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content modal-style d-flex flex-column">
+                    <span class="close">&times;</span>
+                    <label for="movie-title">Movie Title: </label>
+                    <input type="text" id="movie-title" name="fav_language" placeholder="Please Enter Movie Title"><br>
+                    <label for="year">Year: </label>
+                    <input type="text" id="year" name="fav_language" placeholder="Enter Year of Release"><br>
+                    <label for="genre">Movie Genre:</label>
+                    <input type="text" id="genre" name="fav_language" placeholder="Genre"><br>
+                    <!--                    <label for="cast">Movie Cast:</label>-->
+                    <!--                    <textarea id="cast" name="cast" placeholder="List the actors in this movie"></textarea><br>-->
+                    <label for="summary">Movie Summary:</label>
+                    <textarea id="summary" name="summary" placeholder="Describe the movie"></textarea><br>
+                    <input id="submit-btn" type="submit" value="Submit" class="button">
+                </div>
+            </div>
         </div>
     </div>
     <!--    //Main body-->
@@ -68,7 +88,7 @@
         </div>
         <div class="row">
 
-<!--            cards go here-->
+            <!--            cards go here-->
 
         </div>
     </footer>
