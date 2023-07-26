@@ -83,13 +83,14 @@ function displayMovies(movies) {
 
 			// Use innerHTML to set the content of the card with movie data
 			card.innerHTML = `
+
         <div class="max-img-size">
         <img src="${movie.thumbnail}" alt="img" style="" class="height">
         </div>
         <h1 class="height-title">${movie.title}</h1>
         <h2><span class="small-text">${movie.cast[0]}, ${movie.cast[1]}, ${movie.cast[2]}</span></h2>
         <div class="row justify-space-between">
-          <button>Add</button>
+<!--          <button class="btn">Add</button>-->
         </div>
       
         
@@ -104,6 +105,11 @@ function displayMovies(movies) {
 	}
 }
 
+// if(event.target === btn){
+//     console.log("button")
+// }
+const searchInput = document.querySelector("#search");
+searchInput.addEventListener("input", updateSearch);
 // IIFE
 (() => {
 	// Call the function to fetch and update the movie array
@@ -118,8 +124,34 @@ function displayMovies(movies) {
 		// Call the showSlides function recursively after 2 seconds
 		setTimeout(showSlides, 2000); // Change image every 2 seconds
 	}
+
+//Modal
+	// Get the modal
+	let modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+	let btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+	let span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+	btn.onclick = function() {
+		modal.style.display = "block";
+	}
+
+// When the user clicks on <span> (x), close the modal
+	span.onclick = function() {
+		modal.style.display = "none";
+	}
+
+// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function(event) {
+		if (event.target == modal) {
+			modal.style.display = "none";
+		}
+	}
 })();
 
 // Event Listener for search input
-const searchInput = document.querySelector("#search");
-searchInput.addEventListener("input", updateSearch);
+
